@@ -3,7 +3,7 @@ LABEL authors="Thomas Fulton" \
       description="Docker image containing all software requirements for the mendelian-filter pipeline"
 
 # Update and install packages:
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install -y curl \
   #openjdk-11-jdk \
   #openjdk-11-jre \
   && rm -rf /var/lib/apt/lists/* 
