@@ -4,7 +4,7 @@ LABEL authors="Thomas Fulton" \
 
 # Update and install packages:
 RUN apt-get update && apt-get install -y curl \
-  #openjdk-11-jdk \
+  openjdk-11-jdk \
   #openjdk-11-jre \
   && rm -rf /var/lib/apt/lists/* 
 
@@ -14,10 +14,10 @@ RUN mkdir ./modules
 COPY ./test.sh .
 COPY ./test_nf.nf .
 RUN curl -s https://get.nextflow.io | bash && mv nextflow /usr/local/bin/
-ENV PATH=$PATH:opt/mendelian-filter/
+ENV PATH=$PATH:opt/mendelian-filter:/usr/local/bin
 RUN echo $pwd
-CMD ["/bin/sh", "$PATH"]
-CMD ["/bin/sh", "nextflow", "-version"]
+CMD ["/bin/bash", "$PATH"]
+CMD ["/bin/bash", "nextflow", "-version"]
 #ENTRYPOINT ["/bin/sh", "test.sh"]
 #CMD ["--help"]
 #RUN pip install nf-core
