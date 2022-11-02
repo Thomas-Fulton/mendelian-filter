@@ -18,6 +18,6 @@ ENV PATH=$PATH:opt/mendelian-filter:/usr/local/bin
 RUN echo $pwd
 CMD ["/bin/bash", "$PATH"]
 CMD ["/bin/bash", "nextflow", "-version"]
-#ENTRYPOINT ["/bin/sh", "test.sh"]
+ENTRYPOINT ["/bin/bash", "test.sh"]
 #CMD ["--help"]
 #RUN pip install nf-core
